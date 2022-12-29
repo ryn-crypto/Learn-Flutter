@@ -31,13 +31,13 @@ class _MyAppState extends State<MyApp> {
                     onPressed: () {
                       setState(() {
                         widgets.add(Text(
-                          'Data ke-' + counter.toString(),
-                          style: TextStyle(fontSize: 25),
+                          'Data ke-$counter',
+                          style: const TextStyle(fontSize: 25),
                         ));
                         counter++;
                       });
                     },
-                    child: Text('Tambah data')),
+                    child: const Text('Tambah data')),
                 ElevatedButton(
                     onPressed: () {
                       setState(() {
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
                         counter--;
                       });
                     },
-                    child: Text('Hapus data'))
+                    child: const Text('Hapus data'))
               ],
             ),
             Column(
