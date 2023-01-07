@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MainPage(),
     );
   }
@@ -22,17 +23,34 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
-      appBar: AppBar(
-        title: const Text(
-          'Latihan Hero Animation',
-          style: TextStyle(color: Colors.white),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: AppBar(
+          backgroundColor: const Color.fromARGB(255, 128, 98, 8),
+          flexibleSpace: Stack(
+            children: [
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  margin: const EdgeInsets.all(20),
+                  child: const Text(
+                    'Latihan Hero Animation',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
-        backgroundColor: Colors.black,
       ),
       body: GestureDetector(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return SecondPage();
+            return const SecondPage();
           }));
         },
         child: Hero(
@@ -67,7 +85,7 @@ class SecondPage extends StatelessWidget {
           'Latihan Hero Animation',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 128, 98, 8),
       ),
       body: Center(
         child: Hero(
