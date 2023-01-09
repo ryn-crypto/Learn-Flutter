@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.grey,
           foregroundColor: Colors.black,
           errorCorrectionLevel: QrErrorCorrectLevel.M,
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           size: 300,
         ),
       )),
