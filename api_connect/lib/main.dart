@@ -1,5 +1,6 @@
 import 'package:api_connect/pos_result_model.dart';
 import 'package:api_connect/user_model.dart';
+import 'package:api_connect/user_model_all.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   PostResult postResult = null;
   User user = null;
+  String output = null;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,19 @@ class _MyAppState extends State<MyApp> {
                       setState(() {});
                     });
                   },
-                  child: Text("Get Data"))
+                  child: Text("Get Data")),
+              Text((output != null) ? output : "tidak ada data"),
+              ElevatedButton(
+                  onPressed: () {
+                    UserAll.getUser('1').then((users) {
+                      output = '';
+                      for (int i = 0; i < users.length; i++) {
+                        output = output + "[" + users[i].name + " ] ";
+                      }
+                      setState(() {});
+                    });
+                  },
+                  child: Text("Get Data All"))
             ],
           ),
         ),
