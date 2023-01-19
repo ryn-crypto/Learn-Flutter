@@ -34,17 +34,6 @@ class MyApp extends StatelessWidget {
                 },
                 backgroundColor: Colors.purple,
                 child: const Icon(Icons.add_shopping_cart),
-              ),floatingActionButton: Consumer<Money>(
-            builder: (context, money, _) => Consumer<Cart>(
-              builder: (context, cart, _) => FloatingActionButton(
-                onPressed: () {
-                  if (money.balance >= 500) {
-                    cart.quantity += 1;
-                    money.balance -= 500;
-                  }
-                },
-                backgroundColor: Colors.purple,
-                child: const Icon(Icons.add_shopping_cart),
               ),
             ),
           ),
