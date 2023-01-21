@@ -9,9 +9,6 @@ class ColorBloc extends Bloc<ColorEvent, Color> {
   ColorBloc(Color initialState) : super(initialState);
 
   @override
-  Color get initialState => Colors.amber;
-
-  @override
   Stream<Color> mapEventToState(ColorEvent event) async* {
     _color = (event == ColorEvent.to_amber) ? Colors.amber : Colors.lightBlue;
     yield _color;
