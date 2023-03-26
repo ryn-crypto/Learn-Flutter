@@ -1,8 +1,7 @@
 import 'package:alquran/app/data/models/surah.dart';
+import 'package:alquran/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -18,12 +17,12 @@ class HomeView extends GetView<HomeController> {
             future: controller.getAllSurah(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
               if (!snapshot.hasData) {
-                return Center(
+                return const Center(
                   child: Text("Tidak ada data."),
                 );
               }
@@ -32,7 +31,9 @@ class HomeView extends GetView<HomeController> {
                 itemBuilder: (context, index) {
                   Surah surah = snapshot.data![index];
                   return ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.DETAIL_SURAH, arguments: surah);
+                    },
                     leading: CircleAvatar(child: Text("${surah.number}")),
                     title: Text("${surah.name.transliteration.id}"),
                     subtitle: Text(
