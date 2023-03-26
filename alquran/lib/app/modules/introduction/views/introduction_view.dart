@@ -32,7 +32,7 @@ class IntroductionView extends GetView<IntroductionController> {
             style: TextStyle(fontStyle: FontStyle.italic),
           ),
           const SizedBox(height: 20),
-          Container(
+          SizedBox(
               width: 300,
               height: 300,
               child: Lottie.asset('assets/lotties/animate_quran.json')),
